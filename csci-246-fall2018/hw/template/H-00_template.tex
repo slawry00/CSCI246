@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{fasy-hw}
+
+\author{Your Name Here}
+\problem{1-1}
+% \problem{A-B} means Problem Set A, Problem B.
+\collab{none}
+% or give names, e.g., \collab{Alyssa P. Hacker and A. Student}
+
+\begin{document}
+
+Your solution to Problem 1-1 goes here. Remember, \emph{each problem} should be
+start on a new page.
+
+If the problem has subparts, it will be convenient to use the enumerate
+environment:
+\begin{enumerate}[(a)]
+    \item TODO: give the solution to subproblem (a) here.
+    \item TODO: give the solution to subproblem (b) here.
+\end{enumerate}
+
+If for whatever reason enumerate will not suffice (perhaps if your answers are
+getting rather long), then use subsection*:
+
+\section*{Problem 1(a)}
+TODO: give solution here.
+
+This question requires you to include an algorithm.  Be sure to introduce the
+algorithm first by describing the problem/input, then saying intuitively what
+this algorithm does.  We solve this problem in \algref{coins}, where we [insert
+short description here].
+
+\begin{algorithm}
+    \caption{Making Change}
+    \label{alg:coins}
+    \begin{algorithmic}
+        \State \textbf{Input:} Integer $val$, array of integers $coins$.
+        \State \textbf{Output:} The minimal number of coins needed to sum
+        to exactly $val$ cents.\\
+        \hrulefill
+        \State ncoins $\gets$ array of length $val+1$
+        \State ncoins$[0] \gets0$.
+        \For{$ i = 1 \ldots val$}
+        \State ncoins$[i]=\infty$.
+        \For{$j=0 \ldots 5$}
+        \State $k \gets i-coins[j]$
+        \If{$ k \geq 0$}
+        \State ncoins$[i] \gets \min\{\text{ncoins}[i],
+        \text{ncoins}[k]+1\}$.
+        \EndIf
+        \EndFor
+        \EndFor
+        \State return ncoins$[val]$.
+    \end{algorithmic}
+\end{algorithm}
+
+
+\section*{Problem 1(b)}
+TODO: give solution here, etc.
+
+\problem{1-2}
+\collab{none}
+\clearpage
+\header
+
+And the second problem should go on a fresh page.
+
+\end{document}
+
